@@ -1,8 +1,9 @@
-@extends('layout.plantilla')
+{{-- @extends('layout.plantilla')
 
 @section('titulo', 'editar')
 
-@section('contenido')
+@section('contenido') --}}
+<x-app-layout>
     <header>
     <div class=" from-teal-100 via-teal-100 to-teal-100 bg-gradient-to-br">
     <h1 class="text-3xl font-bold tracking-tight text-gray-900">Editar un registro</h1>
@@ -37,4 +38,5 @@
         </div>
     </div>
  </div>
-@endsection
+</x-app-layout>
+{{-- @endsection --}}

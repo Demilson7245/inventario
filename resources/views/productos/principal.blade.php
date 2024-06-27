@@ -1,7 +1,8 @@
-@extends('layout.plantilla')
+{{-- @extends('layout.plantilla')
 
-@section('titulo','principal')
+@section('titulo','principal') --}}
 
+<x-app-layout>
 @section('contenido')
 <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -34,7 +35,7 @@
             <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
                 <span class="inline-block w-1/3 md:hidden font-bold">Operaciones</span>
                 <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded w-full" ><a href="{{route('producto.mostrar',$produ->id)}}">Ver</a></button>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded w-full">Editar</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded w-full"><a href="{{route('producto.editar',$produ)}}">Editar</a></button>
                 
                 <form action="{{route('producto.borrar', $produ)}}" method="post">
                     @method('delete')
@@ -60,5 +61,5 @@
 </div>
 {{$prod->links()}};
 
-
-@endsection
+</x-app-layout>
+{{-- @endsection --}}

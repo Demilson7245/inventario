@@ -1,8 +1,9 @@
-@extends('layout.plantilla')
+{{-- @extends('layout.plantilla')
 
 @section('titulo', 'crear')
 
-@section('contenido')
+@section('contenido') --}}
+<x-app-layout>
     <header>
     <div class=" from-teal-100 via-teal-100 to-teal-100 bg-gradient-to-br">
     <h1 class="text-3xl font-bold tracking-tight text-gray-900">Registrar los nuevos productos</h1>
@@ -35,4 +36,5 @@
         </div>
     </div>
  </div>
-@endsection
+</x-app-layout>
+{{-- @endsection --}}
