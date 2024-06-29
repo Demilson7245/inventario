@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('categoria.crear') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{ route('role.principal') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Rol') }}
                     </x-nav-link>
                 </div>
