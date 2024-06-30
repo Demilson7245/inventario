@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\inicioController;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\roleController;
+use App\Http\Controllers\profileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\roleController;
 */ 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+
    Route::get('/', inicioController::class);
 
    Route::get('producto', [productoController::class, 'principal'])->name('producto.principal');
@@ -49,8 +51,21 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
    Route::delete('role/{id}', [roleController::class, 'borrar'])->name('role.borrar');
    Route::get('desactiva-role/{id}', [roleController::class, 'desactivarole'])->name('desactivarol');
    Route::get('activa-role/{id}', [roleController::class, 'activarole'])->name('activarol');
+   
 });
 
-
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('profile', 'principal')->name('profile.principal');
+        Route::get('profile/crear', 'crear')->name('profile.crear');
+        Route::post('profile', 'store')->name('profile.store');
+        Route::get('profile/{variable}', 'mostrar')->name('profile.mostrar');
+        Route::get('profile/{profile}/edit', 'editar')->name('profile.editar');
+        Route::put('profile/{profile}', 'update')->name('profile.update');
+        Route::delete('profile/{id}', 'destroy')->name('profile.borrar');
+        Route::get('desactiva-profile/{id}', 'desactivar')->name('desactivarprofile');
+        Route::get('activa-profile/{id}', 'activar')->name('activarprofile');
+    });
+});
 
 
