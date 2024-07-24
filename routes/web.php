@@ -17,10 +17,12 @@ use App\Http\Controllers\profileController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */ 
+Route::get('/', inicioController::class);
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 
-   Route::get('/', inicioController::class);
+  // Route::get('/', inicioController::class);
 
    Route::get('producto', [productoController::class, 'principal'])->name('producto.principal');
    Route::get('producto/crear', [productoController::class, 'crear'])->name('producto.crear');

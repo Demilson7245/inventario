@@ -21,7 +21,6 @@ class ProductoFactory extends Factory
 
                'nombre' => $this->faker->word (),
                'precio' => $this->faker->randomDigit(),
-               'descripcion' => $this->faker->paragraph(),
                 'descripcion'  => $this->faker-> paragraph(),
                 'categoria' => $this->faker->randomElement(['gaseosas','lacteos','accesorios']),
               //  'categoria_id'=>Categoria::inRandomOrder()->first()

@@ -10,22 +10,42 @@ return new class extends Migration {
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('profile_photo_path', 2048)->nullable()->after('email');
-        });
-    }
+    // public function up()
+    // {
+    //     Schema::table('users', function (Blueprint $table) {
+    //         $table->string('profile_photo_path', 2048)->nullable()->after('email');
+    //     });
+    // }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('users', function (Blueprint $table) {
+    // /**
+    //  * Reverse the migrations.
+    //  *
+    //  * @return void
+    //  */
+    // public function down()
+    // {
+    //     Schema::table('users', function (Blueprint $table) {
+    //         $table->dropColumn('profile_photo_path');
+    //     });
+    // }
+public function up()
+{
+    Schema::table('users', function (Blueprint $table) {
+        if (!Schema::hasColumn('users', 'profile_photo_path')) {
+            $table->string('profile_photo_path', 2048)->nullable()->after('email');
+        }
+    });
+}
+
+public function down()
+{
+    Schema::table('users', function (Blueprint $table) {
+        if (Schema::hasColumn('users', 'profile_photo_path')) {
             $table->dropColumn('profile_photo_path');
-        });
-    }
+        }
+    });
+}
+
 };
+
+

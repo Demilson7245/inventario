@@ -14,19 +14,20 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->createUser('Alan', 'alan1@gmail.com', '12345678');
-        $this->createUser('Alan', 'alan2@gmail.com', '12345678');
-        $this->createUser('Alan', 'alan3@gmail.com', '12345678');
-        $this->createUser('Alan', 'alan4@gmail.com', '12345678');
-    }
+    //     $this->createUser('Alan', 'alan1@gmail.com', '12345678');
+    //     $this->createUser('Alan', 'alan2@gmail.com', '12345678');
+    //     $this->createUser('Alan', 'alan3@gmail.com', '12345678');
+    //     $this->createUser('Alan', 'alan4@gmail.com', '12345678');
+    // }
 
-    private function createUser(string $name, string $email, string $password): void
-    {
-        $usuario = new User();
-        $usuario->name = $name;
-        $usuario->email = $email;
-        $usuario->password = Hash::make($password);
-        $usuario->save();
+    // private function createUser(string $name, string $email, string $password): void
+    // {
+    //     $usuario = new User();
+    //     $usuario->name = $name;
+    //     $usuario->email = $email;
+    //     $usuario->password = Hash::make($password);
+    //     $usuario->save();
+    User::factory(10)->create();
     }
 
 }
